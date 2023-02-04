@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script></head>
+  <body>
+<div>
+  <nav class="navbar navbar-light bg-light justify-content-between">
+    <img src="../../../assets/images/city.png" height="60" alt="City University" class="navbar-brand" />
+      <button class="btn btn-outline-success my-2 my-sm-0" (click)="logout()">Logout</button>
+  </nav>
+    <div class="sidebar">
+      <a [class]="profile == 1 ? 'active' : null" (click)="activate('profile')">Profile</a>
+      <a [class]="report == 1 ? 'active' : null" (click)="activate('report')">Reports & Transcripts</a>
+      <a [class]="finance == 1 ? 'active' : null" (click)="activate('finance')">Finance</a>
+      <a [class]="about == 1 ? 'active' : null" (click)="activate('about')">About</a>
+
+    </div>
+
+    <div class="content">
+        <app-profile *ngIf="profile == 1" ></app-profile>
+        <app-result *ngIf="report == 1" ></app-result>
+        <app-finance *ngIf="finance == 1"></app-finance>
+        <app-about *ngIf="about == 1"></app-about>
+    </div>
+  </div>
+  </body>
+</html>

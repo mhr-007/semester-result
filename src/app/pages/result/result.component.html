@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head> </head>
+  <body>
+    <div class="content">
+      <div class="d-flex">
+        <div class="text" style="width: 200px; text-align: center">{{ selectItem?.label }}</div>
+        <div class="dropdown show">
+          <select
+            class="form-control"
+            [(ngModel)]="selectedOption"
+            (ngModelChange)="onSelectionChange($event)"
+          >
+            <option *ngFor="let option of options" [value]="option.value">
+              {{ option.label }}
+            </option>
+          </select>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="drag-drop">
+        <div class="widget color-gray">
+          <div class="widget-head">
+            <h3>Semester Report</h3>
+          </div>
+          <div class="widget-content">
+            <div class="inner_content">
+              <table class="table table-bordered">
+                <tbody>
+                  <tr *ngFor="let studentData of studentInfo">
+                    <td>
+                      <b>{{ studentData.label }}</b>
+                    </td>
+                    <td>{{ studentData.value }}</td>
+                  </tr>
+                </tbody>
+              </table>
+
+              <table class="table table-striped">
+                <thead>
+                  <tr>
+                    <th>Course Code</th>
+                    <th>Course Title</th>
+                    <th>Status</th>
+                    <th>Credit Hours</th>
+                    <th>Grade</th>
+                    <th>GP</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let course of courses">
+                    <td>{{ course?.courseCode }}</td>
+                    <td>{{ course?.courseTitle }}</td>
+                    <td>{{ course?.status }}</td>
+                    <td>{{ course?.creditHours }}</td>
+                    <td>{{ course?.grade }}</td>
+                    <td>{{ course?.gp }}</td>
+                  </tr>
+                </tbody>
+                <tr class="row-bold">
+                  <td colspan="4" class="rta">Semester GPA &nbsp;</td>
+                  <td>{{getSemesterGPA()}}</td>
+                  <td></td>
+                </tr>
+
+                <tr class="row-bold">
+                  <td colspan="4" class="rta">Total Credit Hours &nbsp;</td>
+                  <td>{{getTotalCredit()}}</td>
+                  <td></td>
+                </tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

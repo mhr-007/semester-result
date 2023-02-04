@@ -1,0 +1,7 @@
+<div class="test-sound-container"><h1>Test sound</h1>
+  <div><p>Put on your headphones and click on the <b>Play sound</b> button to play a sample sound.</p>
+    <button (click)="playSound($event)">{{ isPlaying ? "Stop sound" : "Play sound" }}</button>
+    <p class="hint message">If you cannot hear the sound clearly, please tell the invigilator.</p>
+    <button (click)="onContinue.emit($event)">Continue</button>
+  </div>
+</div>

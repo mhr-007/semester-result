@@ -1,0 +1,32 @@
+
+.main-content-container {
+  background-color: #dbe5f5;
+  border-top: 1px solid transparent;
+  background-image: url('../../../assets/images/background.png');
+  background-repeat: repeat-x;
+  min-height: 100vh;
+
+  &.full-height {
+    height: calc(100vh - 70px);
+    min-height: 0;
+
+    .test-container {
+      height: 100%;
+
+      .content {
+        height: calc(100% - 90px);
+      }
+    }
+
+    @media screen and (max-width: 1025px) {
+      height: calc(100vh - 101px);
+    }
+
+    @media screen and (max-width: 723px) {
+      height: calc(100vh - 132px);
+    }
+  }
+}
+
+
+

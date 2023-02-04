@@ -1,0 +1,29 @@
+<div role="banner">
+  <div id="test-banner">
+    <p id="candidate" style="display: block;">
+      <span id="candidate-name-label">Candidate name:</span>
+      <span aria-labelled-by="candidate-name-label" class="candidate-name">XXXX XXXXXXX</span>
+      <span> - </span>
+      <span id="candidate-number-label">Candidate number:</span>
+      <span aria-labelled-by="candidate-number-label" class="candidate-number">123456</span>
+    </p>
+    <p id="timer" style="display: inline-block;">
+            <span class="reader-only" id="timer-label">
+                Time:
+            </span>
+      <span aria-labelled-by="timer-label" title="56:18 left" style="display: none;">
+                <span class="time-value">57</span>
+                <span class="time-text"> minutes left</span>
+            </span>
+      <span>Click to show time</span>
+    </p>
+    <div class="controls">
+      <ul id="banner-controls" role="toolbar" style="display: inline-block;">
+        <li *ngIf="showVolumeConfig$ | async"><div class="audio-container"><input class="slider" type="range" min="0" max="1" step="0.01" value="0.5" (input)="onVolumeChange.emit($event)"></div></li>
+        <li *ngIf="showSettings$ | async"><a href="#" >Settings</a></li>
+        <li><a href="#" >Help<span>&nbsp;</span></a></li>
+        <li><a href="#">Hide</a></li>
+      </ul>
+    </div>
+  </div>
+</div>

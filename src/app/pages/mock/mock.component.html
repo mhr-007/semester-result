@@ -1,0 +1,15 @@
+<div class="main-content-container">
+  <app-banner [showVolumeConfig$]="showVolumeConfig$" (onVolumeChange)="changeVolume($event)"></app-banner>
+  <div *ngIf="testPhase == 'details'">
+    <app-confirm-test  (onClick)="onNextStep($event)"></app-confirm-test>
+  </div>
+  <div *ngIf="testPhase == 'settings' && testType == 'listening'">
+    <app-sound-test [volume$]="volume$" (onContinue)="onNextStep($event)"></app-sound-test>
+  </div>
+  <div *ngIf="testPhase == 'instructions' && testType == 'listening' ">
+    <app-instruction (onStart)="onNextStep($event)"></app-instruction>
+  </div>
+  <div *ngIf="testPhase == 'test' && testType == 'listening'" >
+    <app-contents></app-contents>
+  </div>
+</div>
